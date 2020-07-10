@@ -1,18 +1,13 @@
 import * as React from 'react';
 
 import "./App.css";
+import { IProduct } from "./common/IProduct";
 
 interface IProductProps {
-
-    id: number;
-    name: string;
-    cat: string;
-    price: number;
+    item: IProduct
 }
 
-
 export class Product extends React.Component<IProductProps, any> {
-
     constructor(props: IProductProps) {
         super(props);
 
@@ -20,12 +15,10 @@ export class Product extends React.Component<IProductProps, any> {
 
     public render(): JSX.Element {
         return <div className="product">
-
-            {this.props.id} <br />
-            {this.props.name} <br />
-            {this.props.cat} <br />
-            {this.props.price} <br />
+            {this.props.item.id} <br />
+            {this.props.item.name}  <br />
+            {this.props.item.cat} <br />
+            {this.props.item.price}
         </div>;
-
     }
 }

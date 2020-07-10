@@ -3,13 +3,7 @@ import * as React from 'react';
 import "./App.css";
 
 import { Product } from "./Product";
-
-interface IProduct {
-    id: number;
-    name: string;
-    cat: string;
-    price: number;
-}
+import { IProduct } from "./common/IProduct";
 
 const data: IProduct[] = [
     {
@@ -47,13 +41,12 @@ const data: IProduct[] = [
 export class Products extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
-
     }
 
     public render(): JSX.Element {
         return <div>
             {
-                data.map((p: IProduct) => <Product id={p.id} name={p.name} cat={p.cat} price={p.price} />)
+                data.map((p: IProduct) => <Product item={p} />)
             }
         </div>;
     }
