@@ -47,4 +47,10 @@
   padding: 10px;
   width: 30%;
   margin: 20px;
+  display: inline-grid;
+}
+
+.products {
+  background-color: lightgreen;
+  padding: 20px;
 }

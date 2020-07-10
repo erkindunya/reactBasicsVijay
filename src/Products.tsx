@@ -5,7 +5,7 @@ import "./App.css";
 import { Product } from "./Product";
 import { IProduct } from "./common/IProduct";
 
-const data: IProduct[] = [
+const products: IProduct[] = [
     {
         id: 1001,
         name: "Nose Plier",
@@ -41,12 +41,25 @@ const data: IProduct[] = [
 export class Products extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
+
+        this.state = {
+            data: products
+        };
     }
 
     public render(): JSX.Element {
-        return <div>
+        return <div className="products">
+            <input type="button" value=" Del " onClick={() => {
+                let newData = [...this.state.data];
+                newData.shift();
+
+                this.setState({
+                    data: newData
+                });
+            }} />
+
             {
-                data.map((p: IProduct) => <Product item={p} />)
+                this.state.data.map((p: IProduct) => <Product item={p} />)
             }
         </div>;
     }
