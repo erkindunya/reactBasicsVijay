@@ -32,7 +32,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* Product Component Styles */
+.product {
+  border: 1px solid gray;
+  background: lightblue;
+  color: black;
+  padding: 10px;
+  width: 30%;
+  margin: 20px;
 }
