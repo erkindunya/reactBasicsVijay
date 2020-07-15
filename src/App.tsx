@@ -2,14 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Hello } from "./Hello";
-import { Products } from './Products';
+import { JSXDemo } from "./JSXDemo";
 
 function App() {
+
   return (
     <div className="App">
-      <Products />
-
+      <JSXDemo />
     </div>
   );
 }

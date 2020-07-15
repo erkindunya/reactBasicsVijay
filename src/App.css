@@ -38,14 +38,13 @@
   }
 }
 
-
 /* Product Component Styles */
 .product {
   border: 1px solid gray;
   background: lightblue;
   color: black;
   padding: 10px;
-  width: 30%;
+  width: 20%;
   margin: 20px;
   display: inline-grid;
 }
@@ -53,4 +52,10 @@
 .products {
   background-color: lightgreen;
   padding: 20px;
+}
+
+.heading1 {
+  background-color: darkolivegreen;
+  padding: 10px;
+  color: black;
 }
