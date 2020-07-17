@@ -64,7 +64,22 @@ export class Register extends React.Component<any, any> {
       (this.nameRef.current as HTMLInputElement).focus();
       return;
     }
-    // More validations....
+    if ((this.emailRef.current as HTMLInputElement).value.trim() == "") {
+      alert("Email cannot be blank");
+      (this.emailRef.current as HTMLInputElement).focus();
+      return;
+    }
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test((this.emailRef.current as HTMLInputElement).value.trim()) === false) {
+      alert("Invalid Email ID!");
+      (this.emailRef.current as HTMLInputElement).focus();
+      return;
+    }
+
+    if ((this.phoneRef.current as HTMLInputElement).value.trim() == "") {
+      alert("Phone cannot be blank");
+      (this.phoneRef.current as HTMLInputElement).focus();
+      return;
+    }
 
     // Final
     this.setState({
@@ -72,6 +87,8 @@ export class Register extends React.Component<any, any> {
       email: (this.emailRef.current as HTMLInputElement).value,
       phone: (this.phoneRef.current as HTMLInputElement).value,
     });
+
+    // Send to some service
   }
 
   private handleChange = (event: any) => {
