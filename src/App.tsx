@@ -4,12 +4,12 @@ import './App.css';
 import RenderDemo from "./RenderDemo"
 
 import { JSXDemo } from "./JSXDemo";
-
+import { Register } from "./Register";
 function App() {
 
   return (
     <div className="App">
-      <RenderDemo flag={true} hide={true} show={true} />
+      <Register />
     </div>
   );
 }
