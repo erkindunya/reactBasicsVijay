@@ -1,6 +1,10 @@
 import React from "react";
 
 export class Register extends React.Component<any, any> {
+  private nameRef = React.createRef<HTMLInputElement>();
+  private emailRef = React.createRef<HTMLInputElement>();
+  private phoneRef = React.createRef<HTMLInputElement>();
+
   constructor(props: any) {
     super(props);
 
@@ -19,11 +23,11 @@ export class Register extends React.Component<any, any> {
     return <div>
       <h2>Register</h2>
 
-                Name: <input type="text" name="name" onChange={this.handleChange} value={this.state.name} /> <br />
+                Name: <input ref={this.nameRef} type="text" name="name" onChange={this.handleChange} /> <br />
 
-                Email: <input type="text" name="email" onChange={this.handleChange} value={this.state.email} /> <br />
+                Email: <input ref={this.emailRef} type="text" name="email" onChange={this.handleChange} /> <br />
 
-                Phone: <input type="text" name="phone" onChange={this.handleChange} value={this.state.phone} /> <br /><br />
+                Phone: <input ref={this.phoneRef} type="text" name="phone" onChange={this.handleChange} /> <br /><br />
       <input type="checkbox" name="subscribe" checked={this.state.subscribe} onChange={this.handleChange} /> Subscribe to newsletter <br />
 
       <label><h3>Choose Membership:</h3>
@@ -39,7 +43,7 @@ export class Register extends React.Component<any, any> {
         <option value="3">Pay Pal</option>
       </select> <br /><br />
 
-      <input type="button" value=" Register " /><br /><br />
+      <input type="button" value=" Register " onClick={this.handleClick.bind(this)} /><br /><br />
 
       <div>
         Registration Information  <br />
@@ -53,12 +57,29 @@ export class Register extends React.Component<any, any> {
     </div>;
   }
 
+  private handleClick() {
+    // Validate Form
+    if ((this.nameRef.current as HTMLInputElement).value.trim() == "") {
+      alert("Name cannot be blank");
+      (this.nameRef.current as HTMLInputElement).focus();
+      return;
+    }
+    // More validations....
+
+    // Final
+    this.setState({
+      name: (this.nameRef.current as HTMLInputElement).value,
+      email: (this.emailRef.current as HTMLInputElement).value,
+      phone: (this.phoneRef.current as HTMLInputElement).value,
+    });
+  }
+
   private handleChange = (event: any) => {
-    let name = event.target.name;
+    /*let name = event.target.name;
 
     this.setState({
-      [name]: event.target.name === "subscribe" ? event.target.checked : event.target.value
-    });
+        [name]: event.target.name ==="subscribe" ? event.target.checked : event.target.value
+    });*/
   }
 
 }
