@@ -5,9 +5,9 @@ export class Register extends React.Component<any, any> {
     super(props);
 
     this.state = {
-      name: "",
-      email: "",
-      phone: ""
+      name: "Enver",
+      email: "dsdds@gmail.com",
+      phone: "dsadsadsadsad"
     };
   }
 
@@ -15,9 +15,9 @@ export class Register extends React.Component<any, any> {
 
     return <div>
       <h2>Register</h2>
-                Name: <input type="text" onChange={this.nameChanged} /> <br />
-                Email: <input type="text" onChange={event => this.setState({ email: event.currentTarget.value })} /> <br />
-                Phone: <input type="text" onChange={event => this.setState({ phone: event.currentTarget.value })} /> <br /><br />
+                Name: <input type="text" onChange={this.nameChanged} value={(this.state.name)} /> <br />
+                Email: <input type="text" onChange={event => this.setState({ email: event.currentTarget.value })} value={(this.state.email)} /> <br />
+                Phone: <input type="text" onChange={event => this.setState({ phone: event.currentTarget.value })} value={(this.state.phone)} /> <br /><br />
       <input type="button" value=" Register " /><br /><br />
       <div>
         Registration Information  <br />
