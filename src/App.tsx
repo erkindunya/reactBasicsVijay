@@ -1,15 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RenderDemo from "./RenderDemo"
+import { Invoices } from "./Invoices";
+import { InvoiceProvider } from "./InvoiceProvider";
 
-import { JSXDemo } from "./JSXDemo";
-import { Register } from "./Register";
 function App() {
+  let provider = new InvoiceProvider();
+
+  provider.addInvoice({
+    invno: 1001,
+    invdate: new Date(),
+    customer: "XYZ",
+    amount: 2000
+  });
+
+  provider.addInvoice({
+    invno: 1002,
+    invdate: new Date(),
+    customer: "XYZ",
+    amount: 5000
+  });
 
   return (
     <div className="App">
-      <Register />
+      <Invoices provider={provider} />
     </div>
   );
 }
