@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface IStateDemoProps {
-    info?: string;
+    info?: string; // optional properties
 }
 
 interface IStateDemoState {
@@ -29,12 +29,29 @@ export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState>
 
             <input type="button" value=" Change " onClick={() => {
                 this.setState({
-                    count: this.state.count + 1,
-                    timestamp: new Date().getDate()
-                }, () => {
-                    console.log("State state completed!");
-                });
+                    count: this.state.count + 1
+                },
+                    () => {
+                        console.log("State state completed!");
+                        console.log("After state state complete-" + this.state.count);
+                    });
+
+                // Immediately after set state
+                console.log("Immediately after : " + this.state.count);
+
             }} />
         </div>
     }
 }
+
+/*
+
+                /*this.setState((prevState,props) => {
+                    // Carry out any processing using prevState and props
+
+                    return {
+                        count: prevState.count + 1,
+                        timestamp: new Date().getTime()
+                    };
+
+                }*/
