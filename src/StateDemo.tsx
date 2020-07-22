@@ -11,6 +11,8 @@ interface IStateDemoState {
 }
 
 export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState> {
+    private msg: string = "Render Fired!";
+
     constructor(props: IStateDemoProps) {
         super(props);
 
@@ -22,14 +24,49 @@ export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState>
         };
     }
 
+    public componentDidMount() {
+        console.log("ComponentDidMount->Before State State : " + this.state.count);
+
+        this.setState({
+            count: this.state.count + 1
+        },
+            () => {
+                console.log("ComponentDidMount->Post State State Callback : " + this.state.count);
+            });
+
+        console.log("ComponentDidMount->After State State : " + this.state.count);
+
+        console.log("Updating state 3 times....");
+        this.msg = "** Render fired!";
+        this.setState({
+            count: 10
+        });
+
+        this.setState({
+            count: 20
+        });
+
+        this.setState({
+            count: 30
+        });
+
+    }
+
     public render(): JSX.Element {
+        console.log(this.msg);
+
         return <div>
             <h3>State values</h3>
             {this.state.count} <br /> {this.state.timestamp} <br /> {this.state.message} <br />
 
             <input type="button" value=" Change " onClick={() => {
-                this.setState({
-                    count: this.state.count + 1
+                this.setState((prevState, props) => {
+                    // Carry out any processing using prevState and props
+
+                    return {
+                        count: prevState.count + 1,
+                        timestamp: new Date().getTime()
+                    };
                 },
                     () => {
                         console.log("State state completed!");
@@ -46,12 +83,4 @@ export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState>
 
 /*
 
-                /*this.setState((prevState,props) => {
-                    // Carry out any processing using prevState and props
-
-                    return {
-                        count: prevState.count + 1,
-                        timestamp: new Date().getTime()
-                    };
-
-                }*/
+                /*this.setState(*/
