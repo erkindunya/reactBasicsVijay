@@ -38,17 +38,23 @@ export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState>
 
         console.log("Updating state 3 times....");
         this.msg = "** Render fired!";
-        this.setState({
-            count: 10
-        });
 
         this.setState({
-            count: 20
+            count: this.state.count + 1
+        }, () => {
+            this.setState({
+                count: this.state.count + 3,
+                timestamp: new Date().getTime()
+            }, () => {
+                this.setState({
+                    count: this.state.count + 2
+                });
+            });
         });
 
-        this.setState({
-            count: 30
-        });
+
+
+
 
     }
 
