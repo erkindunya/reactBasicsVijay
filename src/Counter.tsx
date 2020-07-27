@@ -4,15 +4,16 @@ export interface ICounterProps {
     initial: number;
 }
 
-// <Count initial={ 1 } />
+// <Counter initial={ 1 } />
 export function Counter(props: ICounterProps) : JSX.Element {
-    let count : number = props.initial;
+    let [count,setCount] = React.useState(props.initial);
 
     return <div>
         Count: { count } <br/>
 
         <input type="button" value=" + " onClick={ () => {
-            count++;
+            setCount(count+1);
+            console.log("Count=" + count);
         }} />
     </div>;
 }
