@@ -51,11 +51,6 @@ export class StateDemo extends React.Component<IStateDemoProps, IStateDemoState>
                 });
             });
         });
-
-
-
-
-
     }
 
     public render(): JSX.Element {

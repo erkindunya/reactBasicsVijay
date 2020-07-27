@@ -1,15 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { StateDemo } from "./StateDemo";
+import { Counter } from "./Counter";
+import { countReset } from 'console';
 
 
 function App() {
-
-
   return (
     <div className="App">
-      <StateDemo info="This is info (message)" />
+      <Counter initial={ 10 } />
     </div>
   );
 }
